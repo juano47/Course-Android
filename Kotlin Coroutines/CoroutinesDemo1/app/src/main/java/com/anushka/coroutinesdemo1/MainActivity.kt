@@ -4,6 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
     private var count = 0
@@ -16,13 +20,19 @@ class MainActivity : AppCompatActivity() {
             tvCount.text = count++.toString()
         }
         btnDownloadUserData.setOnClickListener {
-            downloadUserData()
+            CoroutineScope(Dispatchers.IO).launch {
+                downloadUserData()
+            }
         }
     }
 
-    private fun downloadUserData() {
+    private suspend fun downloadUserData() {
         for (i in 1..200000) {
-            Log.i("MyTag", "Downloading user $i in ${Thread.currentThread().name}")
+            //Log.i("MyTag", "Downloading user $i in ${Thread.currentThread().name}");
+                // Change the context for allow send data to UI
+            withContext(Dispatchers.Main){
+                tvUserMessage.text = "Downloading user $i in ${Thread.currentThread().name}";
+            }
         }
     }
 }
