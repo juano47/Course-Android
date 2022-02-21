@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         getRequestWithPathParameter()
         getRequestWithQueryParameter()
+        saveAlbum()
     }
 
     private fun getRequestWithQueryParameter(){
@@ -60,5 +61,24 @@ class MainActivity : AppCompatActivity() {
                 Log.i("Album", "Album id: ${album.albumId} - title: ${album.title}")
             }
         })
+    }
+
+    private fun saveAlbum() {
+        var album = Album(0, "Title album", 3)
+        val responseSaveAlbum:LiveData<Response<Album>> = liveData {
+            val response = restAlbumService.saveAlbum(album)
+            emit(response)
+        }
+
+        responseSaveAlbum.observe(this, {
+            val savedAlbum = it.body()
+            if (savedAlbum!=null){
+                val result = " Album title :  ${savedAlbum.title} \n" +
+                        " Album id :  ${savedAlbum.albumId} \n" +
+                        " user id :  ${savedAlbum.userId} \n\n\n"
+                binding.textView.append(result)
+            }
+        })
+
     }
 }
