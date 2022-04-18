@@ -2,7 +2,9 @@ package com.anushka.didemo
 
 import dagger.Component
 
-@Component(modules = [MemoryCardModule::class])
+//esta es la raiz del grafo de inyeccion de dependencias, se anotan con @Component
+@Component(modules = [MemoryCardModule::class, NCBatteryModule::class])
 interface SmartPhoneComponent {
-    fun getSmartPhone(): SmartPhone
+    //esta es la funcion que se usa para inyectar dependencias
+    fun getSmartPhone() : SmartPhone
 }
