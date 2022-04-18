@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
     //con el cambio hecho en SmartPhoneModule no solo se puede inyectar el smartPhone sino cualquier otra
     //clase que este en el arbol de dependencias de smartPhoneModule
     @Inject
-    lateinit var memoryCardModule: MemoryCardModule
+    lateinit var memoryCard: MemoryCard
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
