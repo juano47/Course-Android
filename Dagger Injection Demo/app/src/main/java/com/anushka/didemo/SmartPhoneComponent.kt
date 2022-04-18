@@ -6,5 +6,9 @@ import dagger.Component
 @Component(modules = [MemoryCardModule::class, NCBatteryModule::class])
 interface SmartPhoneComponent {
     //esta es la funcion que se usa para inyectar dependencias
-    fun getSmartPhone() : SmartPhone
+    //fun getSmartPhone() : SmartPhone
+
+    //mejor forma de hacerlo, el nombre de la funcion es arbitrario
+    fun inject(mainActivity: MainActivity)
+    //hacemos un inject por cada activity o fragment donde se usa el componente
 }
