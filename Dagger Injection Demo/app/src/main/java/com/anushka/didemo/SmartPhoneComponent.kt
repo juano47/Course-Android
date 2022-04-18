@@ -1,7 +1,9 @@
 package com.anushka.didemo
 
 import dagger.Component
+import javax.inject.Singleton
 
+@Singleton
 //esta es la raiz del grafo de inyeccion de dependencias, se anotan con @Component
 @Component(modules = [MemoryCardModule::class, NCBatteryModule::class])
 interface SmartPhoneComponent {
