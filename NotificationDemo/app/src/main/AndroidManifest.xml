@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NotificationDemo">
         <activity
+            android:name=".DetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SecondActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
