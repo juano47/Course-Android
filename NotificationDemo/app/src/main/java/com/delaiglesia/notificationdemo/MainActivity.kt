@@ -1,9 +1,6 @@
 package com.delaiglesia.notificationdemo
 
-import android.app.Notification
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
+import android.app.*
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,6 +10,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var button: Button
     private val channelID = "com.delaiglesia.notificationdemo.channel1"
     private var notificationManager: NotificationManager? = null
+    private val KEY_REPLY = "key_reply"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +29,15 @@ class MainActivity : AppCompatActivity() {
         val tapResultIntent = Intent(this, SecondActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(this, 0, tapResultIntent, PendingIntent.FLAG_UPDATE_CURRENT)
 
+        //reply action
+        val remoteInput = RemoteInput.Builder(KEY_REPLY)
+            .setLabel("Insert your name here")
+            .build()
+        val replyAction = Notification.Action.Builder(0, "Reply", pendingIntent)
+            .addRemoteInput(remoteInput)
+            .setAllowGeneratedReplies(true)
+            .build()
+
         //action button
         val actionIntent = Intent(this, DetailsActivity::class.java)
         val actionPendingIntent = PendingIntent.getActivity(this, 0, actionIntent, PendingIntent.FLAG_UPDATE_CURRENT)
@@ -40,8 +47,8 @@ class MainActivity : AppCompatActivity() {
             .setContentTitle("Notification Title")
             .setContentText("This is the notification text")
             .setSmallIcon(R.drawable.ic_launcher_foreground)
-            .setContentIntent(pendingIntent)
             .setActions(action)
+            .addAction(replyAction)
             .build()
 
         notificationManager?.notify(1, notification)
