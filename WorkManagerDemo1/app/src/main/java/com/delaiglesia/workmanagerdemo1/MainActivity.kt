@@ -19,8 +19,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setOneTimeWorkRequest() {
+        val workManager = WorkManager.getInstance(applicationContext)
         val uploadRequest = OneTimeWorkRequest.Builder(UploaderWorker::class.java).build()
-        WorkManager.getInstance(this).enqueue(uploadRequest)
+        workManager.enqueue(uploadRequest)
+        workManager.getWorkInfoByIdLiveData(uploadRequest.id)
+            .observe(this, { workInfo ->
+                if (workInfo != null) {
+                    //RUNNING, SUCCEEDED, FAILED, BLOCKED, ENQUEUED states
+                    binding.textView.text = workInfo.state.name
+                }
+            })
     }
 
 }
