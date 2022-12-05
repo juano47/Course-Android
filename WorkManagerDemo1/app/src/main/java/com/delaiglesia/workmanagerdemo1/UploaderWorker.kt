@@ -31,7 +31,6 @@ class UploaderWorker(context: Context, params:WorkerParameters) : Worker(context
             Log.e("MYTAG", "Error uploading", e)
             return Result.failure()
         }
-
     }
 
 }
