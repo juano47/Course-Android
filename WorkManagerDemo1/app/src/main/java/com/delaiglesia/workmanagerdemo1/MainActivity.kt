@@ -28,22 +28,50 @@ class MainActivity : AppCompatActivity() {
     private fun setOneTimeWorkRequest() {
         val workManager = WorkManager.getInstance(applicationContext)
 
-        val data: Data = Data.Builder()
-            .putInt(KEY_COUNT_VALUE, 60000)
-            .build()
-
         //constraints
         val constraints = Constraints.Builder()
             .setRequiresCharging(true)
             .setRequiredNetworkType(NetworkType.CONNECTED)
             .build()
+
+        val filteringRequest = setFilteringWorker(constraints)
+        val compressingRequest = setCompressingWorker(constraints)
+        val uploadRequest = setUploadingWorker(constraints, workManager)
+        val downloadingRequest = setDownloadingWorker(constraints)
+
+        val parallelWorks = mutableListOf(downloadingRequest, filteringRequest)
+
+        //encadenamos workers! omg
+        workManager.beginWith(parallelWorks)
+            .then(compressingRequest)
+            .then(uploadRequest)
+            .enqueue()
+    }
+
+    private fun setFilteringWorker(constraints: Constraints): OneTimeWorkRequest {
+        return OneTimeWorkRequest.Builder(FilteringWorker::class.java)
+            .setConstraints(constraints)
+            .build()
+    }
+
+    private fun setCompressingWorker(constraints: Constraints): OneTimeWorkRequest {
+        return OneTimeWorkRequest.Builder(CompressingWorker::class.java)
+            .setConstraints(constraints)
+            .build()
+    }
+
+    private fun setUploadingWorker(constraints: Constraints, workManager: WorkManager): OneTimeWorkRequest {
+        val data: Data = Data.Builder()
+            .putInt(KEY_COUNT_VALUE, 30000)
+            .build()
+
         val uploadRequest = OneTimeWorkRequest.Builder(UploaderWorker::class.java)
             .setConstraints(constraints)
             .setInputData(data)
             .build()
-        workManager.enqueue(uploadRequest)
+
         workManager.getWorkInfoByIdLiveData(uploadRequest.id)
-            .observe(this, { workInfo ->
+            .observe(this) { workInfo ->
                 if (workInfo != null) {
                     //RUNNING, SUCCEEDED, FAILED, BLOCKED, ENQUEUED states
                     binding.textView.text = workInfo.state.name
@@ -53,7 +81,13 @@ class MainActivity : AppCompatActivity() {
                         binding.textView.append("\n\n $message")
                     }
                 }
-            })
+            }
+        return uploadRequest
     }
 
+    private fun setDownloadingWorker(constraints: Constraints): OneTimeWorkRequest {
+        return OneTimeWorkRequest.Builder(DownloadingWorker::class.java)
+            .setConstraints(constraints)
+            .build()
+    }
 }
