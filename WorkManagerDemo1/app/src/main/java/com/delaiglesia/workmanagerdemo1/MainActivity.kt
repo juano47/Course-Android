@@ -3,12 +3,9 @@ package com.delaiglesia.workmanagerdemo1
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import androidx.work.Constraints
-import androidx.work.Data
-import androidx.work.NetworkType
-import androidx.work.OneTimeWorkRequest
-import androidx.work.WorkManager
+import androidx.work.*
 import com.delaiglesia.workmanagerdemo1.databinding.ActivityMainBinding
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -89,5 +86,15 @@ class MainActivity : AppCompatActivity() {
         return OneTimeWorkRequest.Builder(DownloadingWorker::class.java)
             .setConstraints(constraints)
             .build()
+    }
+
+    //PERIODIC WORK REQUEST
+    private fun setPeriodicWorkRequest() {
+        val workManager = WorkManager.getInstance(applicationContext)
+
+        val periodicWorkRequest = PeriodicWorkRequest.Builder(DownloadingWorker::class.java, 15, TimeUnit.MINUTES)
+            .build()
+
+        workManager.enqueue(periodicWorkRequest)
     }
 }
