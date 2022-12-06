@@ -1,4 +1,4 @@
-package com.delaiglesia.moviesapp.data
+package com.delaiglesia.moviesapp.data.model.tvshow
 
 
 import com.google.gson.annotations.SerializedName

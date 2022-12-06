@@ -1,8 +1,8 @@
 package com.delaiglesia.moviesapp.data.api
 
-import com.delaiglesia.moviesapp.data.ArtistList
-import com.delaiglesia.moviesapp.data.MovieList
-import com.delaiglesia.moviesapp.data.TvShowList
+import com.delaiglesia.moviesapp.data.model.artist.ArtistList
+import com.delaiglesia.moviesapp.data.model.movie.MovieList
+import com.delaiglesia.moviesapp.data.model.tvshow.TvShowList
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
