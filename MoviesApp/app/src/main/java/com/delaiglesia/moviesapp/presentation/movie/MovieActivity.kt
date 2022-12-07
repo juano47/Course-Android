@@ -26,8 +26,8 @@ class MovieActivity : AppCompatActivity() {
         movieViewModel = ViewModelProvider(this, factory)
             .get(MovieViewModel::class.java)
         val responseLiveData = movieViewModel.getMovies()
-        responseLiveData.observe(this, { movieList ->
+        responseLiveData.observe(this) { movieList ->
             Log.i("MyTag", movieList.toString())
-        })
+        }
     }
 }

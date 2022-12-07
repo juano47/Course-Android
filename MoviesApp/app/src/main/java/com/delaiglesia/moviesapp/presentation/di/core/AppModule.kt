@@ -1,6 +1,5 @@
 package com.delaiglesia.moviesapp.presentation.di.core
 
-import android.app.Application
 import android.content.Context
 import com.delaiglesia.moviesapp.presentation.di.artist.ArtistSubComponent
 import com.delaiglesia.moviesapp.presentation.di.movie.MovieSubComponent

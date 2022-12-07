@@ -2,7 +2,6 @@ package com.delaiglesia.moviesapp.presentation.movie
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
-import com.delaiglesia.moviesapp.data.model.movie.Movie
 import com.delaiglesia.moviesapp.domain.usecase.GetMoviesUseCase
 import com.delaiglesia.moviesapp.domain.usecase.UpdateMoviesUseCase
 

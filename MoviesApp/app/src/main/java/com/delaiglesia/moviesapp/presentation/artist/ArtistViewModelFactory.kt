@@ -3,7 +3,6 @@ package com.delaiglesia.moviesapp.presentation.artist
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.delaiglesia.moviesapp.domain.usecase.GetArtistsUseCase
-import com.delaiglesia.moviesapp.domain.usecase.GetMoviesUseCase
 import com.delaiglesia.moviesapp.domain.usecase.UpdateArtistsUseCase
 
 class ArtistViewModelFactory(

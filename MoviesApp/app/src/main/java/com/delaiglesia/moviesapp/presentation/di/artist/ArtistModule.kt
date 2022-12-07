@@ -5,7 +5,6 @@ import com.delaiglesia.moviesapp.domain.usecase.UpdateArtistsUseCase
 import com.delaiglesia.moviesapp.presentation.artist.ArtistViewModelFactory
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
 
 @Module
 class ArtistModule {
