@@ -5,5 +5,5 @@ import com.delaiglesia.moviesapp.domain.repository.MovieRepository
 
 class GetMoviesUseCase(private val movieRepository: MovieRepository) {
 
-    suspend fun invoke(): List<Movie>? = movieRepository.getMovies()
+    suspend fun invoke(): List<Movie> = movieRepository.getMovies()
 }

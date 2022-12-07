@@ -1,4 +1,4 @@
-package com.delaiglesia.tvShowsapp.data.repository.tvShow.dataSourceImpl
+package com.delaiglesia.moviesapp.data.repository.tvShow.dataSourceImpl
 
 import com.delaiglesia.moviesapp.data.model.tvshow.TvShow
 import com.delaiglesia.moviesapp.data.repository.tvShow.TvShowCacheDataSource
