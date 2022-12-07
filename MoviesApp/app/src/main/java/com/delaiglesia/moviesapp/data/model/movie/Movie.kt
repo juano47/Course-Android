@@ -1,9 +1,13 @@
 package com.delaiglesia.moviesapp.data.model.movie
 
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "movie")
 data class Movie(
+    @PrimaryKey
     @SerializedName("id")
     val id: Int,
     @SerializedName("overview")
