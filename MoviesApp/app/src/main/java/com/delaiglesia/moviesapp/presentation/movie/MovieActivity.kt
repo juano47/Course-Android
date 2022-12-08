@@ -1,6 +1,8 @@
 package com.delaiglesia.moviesapp.presentation.movie
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -35,13 +37,18 @@ class MovieActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@MovieActivity)
             movieAdapter = MovieAdapter()
             binding.movieRecyclerView.adapter = movieAdapter
-            displayMovies()
+            displayMovies(Action.GET)
         }
     }
 
-    private fun displayMovies() {
+    private fun displayMovies(action: Action) {
         binding.movieProgressBar.visibility = View.VISIBLE
-        val responseLiveData = movieViewModel.getMovies()
+
+        val responseLiveData = when (action) {
+            Action.GET -> movieViewModel.getMovies()
+            Action.UPDATE -> movieViewModel.updateMovies()
+        }
+
         responseLiveData.observe(this) { movies ->
             if (movies != null) {
                 movieAdapter.setList(movies)
@@ -52,5 +59,25 @@ class MovieActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "No data available", Toast.LENGTH_LONG).show()
             }
         }
+    }
+
+    //show menu in action bar
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.update, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_update -> {
+                displayMovies(Action.UPDATE)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    enum class Action {
+        GET, UPDATE
     }
 }
