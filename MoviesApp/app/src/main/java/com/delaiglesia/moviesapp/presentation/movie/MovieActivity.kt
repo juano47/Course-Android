@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.delaiglesia.moviesapp.R
 import com.delaiglesia.moviesapp.databinding.ActivityMovieBinding
+import com.delaiglesia.moviesapp.presentation.constants.Action
 import com.delaiglesia.moviesapp.presentation.di.Injector
 import javax.inject.Inject
 
@@ -20,6 +21,7 @@ class MovieActivity : AppCompatActivity() {
     private lateinit var movieViewModel: MovieViewModel
     private lateinit var binding: ActivityMovieBinding
     private lateinit var movieAdapter: MovieAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_movie)
@@ -75,9 +77,5 @@ class MovieActivity : AppCompatActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
-    }
-
-    enum class Action {
-        GET, UPDATE
     }
 }

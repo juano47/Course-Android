@@ -1,4 +1,4 @@
-package com.delaiglesia.moviesapp.presentation.movie
+package com.delaiglesia.moviesapp.presentation.artist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,14 +6,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.delaiglesia.moviesapp.R
-import com.delaiglesia.moviesapp.data.model.movie.Movie
+import com.delaiglesia.moviesapp.data.model.artist.Artist
 import com.delaiglesia.moviesapp.databinding.ListItemBinding
 
-class MovieAdapter : RecyclerView.Adapter<MyViewHolder>() {
-    private val movies = ArrayList<Movie>()
-    fun setList(movies: List<Movie>){
-        this.movies.clear()
-        this.movies.addAll(movies)
+class ArtistAdapter : RecyclerView.Adapter<MyViewHolder>() {
+    private val artists = ArrayList<Artist>()
+    fun setList(artists: List<Artist>){
+        this.artists.clear()
+        this.artists.addAll(artists)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
        val layoutInflater = LayoutInflater.from(parent.context)
@@ -27,20 +27,21 @@ class MovieAdapter : RecyclerView.Adapter<MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bind(movies[position])
+        holder.bind(artists[position])
     }
 
     override fun getItemCount(): Int {
-        return movies.size
+        return artists.size
     }
 }
 
 class MyViewHolder(val binding: ListItemBinding): RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(movie: Movie) {
-        binding.titleTextView.text = movie.title
-        binding.descriptionTextView.text = movie.overview
-        val posterURL = "https://image.tmdb.org/t/p/w500" + movie.posterPath
+    fun bind(artist: Artist) {
+        binding.titleTextView.text = artist.name
+        binding.descriptionTextView.text =
+            "Popularity score: " + artist.popularity.toString().substringBefore(".")
+        val posterURL = "https://image.tmdb.org/t/p/w500" + artist.profilePath
         Glide.with(binding.imageView.context)
             .load(posterURL)
             .into(binding.imageView)

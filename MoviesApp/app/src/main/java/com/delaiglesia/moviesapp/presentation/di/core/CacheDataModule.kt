@@ -1,5 +1,6 @@
 package com.delaiglesia.moviesapp.presentation.di.core
 
+import com.delaiglesia.moviesapp.data.repository.artist.ArtistCacheDataSource
 import com.delaiglesia.moviesapp.data.repository.artist.dataSourceImpl.ArtistCacheDataSourceImpl
 import com.delaiglesia.moviesapp.data.repository.movie.MovieCacheDataSource
 import com.delaiglesia.moviesapp.data.repository.movie.dataSourceImpl.MovieCacheDataSourceImpl
@@ -26,7 +27,7 @@ class CacheDataModule {
 
     @Singleton
     @Provides
-    fun provideArtistsCacheDataSource(): ArtistCacheDataSourceImpl {
+    fun provideArtistsCacheDataSource(): ArtistCacheDataSource {
         return ArtistCacheDataSourceImpl()
     }
 }
