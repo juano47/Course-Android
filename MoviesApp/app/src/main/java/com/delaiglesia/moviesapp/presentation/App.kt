@@ -2,7 +2,7 @@ package com.delaiglesia.moviesapp.presentation
 
 import android.app.Application
 import com.delaiglesia.moviesapp.BuildConfig
-import com.delaiglesia.moviesapp.presentation.di.Injector
+import com.delaiglesia.moviesapp.presentation.di.core.Injector
 import com.delaiglesia.moviesapp.presentation.di.artist.ArtistSubComponent
 import com.delaiglesia.moviesapp.presentation.di.core.*
 import com.delaiglesia.moviesapp.presentation.di.movie.MovieSubComponent

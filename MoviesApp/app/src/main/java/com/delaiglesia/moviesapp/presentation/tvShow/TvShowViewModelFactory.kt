@@ -9,7 +9,6 @@ class TvShowViewModelFactory(
     private val getTvShowsUseCase: GetTvShowsUseCase,
     private val updateTvShowsUseCase: UpdateTvShowsUseCase
 ): ViewModelProvider.Factory {
-
     override fun <T:ViewModel> create(modelClass: Class<T>): T {
         return TvShowViewModel(getTvShowsUseCase, updateTvShowsUseCase) as T
     }

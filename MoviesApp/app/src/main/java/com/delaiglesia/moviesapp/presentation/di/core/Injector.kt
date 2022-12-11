@@ -1,4 +1,4 @@
-package com.delaiglesia.moviesapp.presentation.di
+package com.delaiglesia.moviesapp.presentation.di.core
 
 import com.delaiglesia.moviesapp.presentation.di.artist.ArtistSubComponent
 import com.delaiglesia.moviesapp.presentation.di.movie.MovieSubComponent

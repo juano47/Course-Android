@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.delaiglesia.moviesapp.R
 import com.delaiglesia.moviesapp.databinding.ActivityArtistBinding
 import com.delaiglesia.moviesapp.presentation.constants.Action
-import com.delaiglesia.moviesapp.presentation.di.Injector
+import com.delaiglesia.moviesapp.presentation.di.core.Injector
 import javax.inject.Inject
 
 class ArtistActivity : AppCompatActivity() {

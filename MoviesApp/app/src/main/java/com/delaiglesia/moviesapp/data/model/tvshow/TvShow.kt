@@ -9,8 +9,6 @@ data class TvShow(
     @PrimaryKey
     @SerializedName("id")
     val id: Int,
-    @SerializedName("first_air_date")
-    val firstAirDate: String?,
     @SerializedName("name")
     val name: String?,
     @SerializedName("overview")
