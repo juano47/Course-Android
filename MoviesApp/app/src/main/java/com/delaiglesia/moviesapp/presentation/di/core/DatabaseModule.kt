@@ -1,19 +1,24 @@
 package com.delaiglesia.moviesapp.presentation.di.core
 
+import android.app.Application
 import android.content.Context
 import androidx.room.Room
 import com.delaiglesia.moviesapp.data.db.TMDBDatabase
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 @Module
+@InstallIn(SingletonComponent::class)
 class DatabaseModule {
 
     @Singleton
     @Provides
-    fun provideDatabase(context: Context): TMDBDatabase {
-        return Room.databaseBuilder(context, TMDBDatabase::class.java, "movies-app.db")
+    fun provideDatabase(app: Application): TMDBDatabase {
+        return Room.databaseBuilder(app, TMDBDatabase::class.java, "movies-app.db")
             .build()
     }
 

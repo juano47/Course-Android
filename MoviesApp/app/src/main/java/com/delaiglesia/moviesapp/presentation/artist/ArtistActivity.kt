@@ -12,9 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.delaiglesia.moviesapp.R
 import com.delaiglesia.moviesapp.databinding.ActivityArtistBinding
 import com.delaiglesia.moviesapp.presentation.constants.Action
-import com.delaiglesia.moviesapp.presentation.di.core.Injector
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class ArtistActivity : AppCompatActivity() {
     @Inject
     lateinit var factory: ArtistViewModelFactory
@@ -25,9 +26,6 @@ class ArtistActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_artist)
-
-        (application as Injector).createArtistSubComponent()
-            .inject(this)
 
         artistViewModel = ViewModelProvider(this, factory)
             .get(ArtistViewModel::class.java)
