@@ -18,11 +18,17 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "API_KEY", "MY_API_KEY")
+        buildConfigField "String", "BASE_URL", "\"https://newsapi.org/v2/\""
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            //https://developer.android.com/studio/build/shrink-code?hl=es-419
+            minifyEnabled true
+            //https://developer.android.com/studio/build/shrink-code?hl=es-419#shrink-resources
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
