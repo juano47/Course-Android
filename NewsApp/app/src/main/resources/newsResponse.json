@@ -1,0 +1,266 @@
+{
+  "status": "ok",
+  "totalResults": 36,
+  "articles": [
+    {
+      "source": {
+        "id": null,
+        "name": "CNBC"
+      },
+      "author": "Elliot Smith",
+      "title": "Bank of Japan shocks global markets with bond yield shift - CNBC",
+      "description": "Global markets were jolted overnight after Japan unexpectedly raised the cap on 10-year Japanese government bond yields, sparking a sell-off in bonds and stocks.",
+      "url": "https://www.cnbc.com/2022/12/20/bank-of-japan-shocks-global-markets-with-bond-yield-shift.html",
+      "urlToImage": "https://image.cnbcfm.com/api/v1/image/107122648-1663837928677-gettyimages-1243415026-AFP_32JV66N.jpeg?v=1671528204&w=1920&h=1080",
+      "publishedAt": "2022-12-20T09:23:24Z",
+      "content": "The Bank of Japan on Tuesday shocked global markets by widening the target range for its 10-year government bond yield.\r\nGlobal markets were jolted overnight after the Bank of Japan unexpectedly wide… [+4671 chars]"
+    },
+    {
+      "source": {
+        "id": "reuters",
+        "name": "Reuters"
+      },
+      "author": null,
+      "title": "COVID border restrictions on migrants to stay after U.S. Supreme Court order - Reuters.com",
+      "description": "The U.S. Supreme Court on Monday said COVID-era restrictions at the U.S.-Mexico border that have prevented hundreds of thousands of migrants from seeking asylum should be kept in place for now, siding with Republicans who brought a legal challenge.",
+      "url": "https://www.reuters.com/world/us/us-preps-more-migrant-crossings-covid-era-restrictions-set-end-2022-12-19/",
+      "urlToImage": "https://www.reuters.com/resizer/133_rBzKc9Sd2IGn_qWbVBJNPZA=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/OKHXAW7ZQFO3HDHKCTRTGXGHFA.jpg",
+      "publishedAt": "2022-12-20T09:08:00Z",
+      "content": "WASHINGTON/CIUDAD JUAREZ, Mexico, Dec 19 (Reuters) - The U.S. Supreme Court on Monday said COVID-era restrictions at the U.S.-Mexico border that have prevented hundreds of thousands of migrants from … [+5257 chars]"
+    },
+    {
+      "source": {
+        "id": "the-washington-post",
+        "name": "The Washington Post"
+      },
+      "author": "William Booth, Karla Adam",
+      "title": "U.K. nurses strike over pay, testing a health-care system in crisis - The Washington Post",
+      "description": "Wide swathes of British workers in the public sector are in open revolt against 12 years of conservative “austerity budgets” and the soaring costs of living",
+      "url": "https://www.washingtonpost.com/world/2022/12/20/uk-strikes-nurses-nhs-healthcare/",
+      "urlToImage": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/N3AR3HQQYHTFTR2WEJ5TJ3LYRY.jpg&w=1440",
+      "publishedAt": "2022-12-20T09:00:00Z",
+      "content": "Comment on this story\r\nLONDON The British newspapers are calling it the winter of discontent.\r\nHuge strikes are creating chaos in hospitals and standstills at transit hubs, as walkouts by firefighter… [+6508 chars]"
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Aya Elamroussi",
+      "title": "Polar air and a powerful winter storm put millions under winter alerts this holiday week - CNN",
+      "description": "For millions of Americans across a large swath of the country, the holiday week is beginning with unrelenting below-freezing temperatures made even more miserable by heavy snow expected Tuesday and Wednesday in several central and northwestern states.",
+      "url": "https://www.cnn.com/2022/12/20/weather/christmas-artic-winter-storm-tuesday/index.html",
+      "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/221220015845-01-sioux-falls-ice-121322.jpg?c=16x9&q=w_800,c_fill",
+      "publishedAt": "2022-12-20T08:33:00Z",
+      "content": "For millions of Americans across a large swath of the country, the holiday week is beginning with unrelenting below-freezing temperatures made even more miserable by heavy snow expected Tuesday and W… [+4990 chars]"
+    },
+    {
+      "source": {
+        "id": "reuters",
+        "name": "Reuters"
+      },
+      "author": null,
+      "title": "China races to bolster health system as COVID surge sparks global concern - Reuters.com",
+      "description": "Cities across China scrambled to install hospital beds and build fever screening clinics on Tuesday as authorities reported five more deaths and <a href=\"/world/china/world-fears-new-china-covid-wave-ponders-how-help-xi-2022-12-20/\">international concern</a> …",
+      "url": "https://www.reuters.com/business/healthcare-pharmaceuticals/china-races-install-hospital-beds-covid-surge-sparks-concern-abroad-2022-12-20/",
+      "urlToImage": "https://www.reuters.com/resizer/TJZQB_F8nW79W9u2a0SxuZt_o3E=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/PYOCSIKBIJJV7K5WN3TFKVNFF4.jpg",
+      "publishedAt": "2022-12-20T07:07:00Z",
+      "content": "BEIJING/SINGAPORE, Dec 20 (Reuters) - Cities across China scrambled to install hospital beds and build fever screening clinics on Tuesday as authorities reported five more deaths and international co… [+4873 chars]"
+    },
+    {
+      "source": {
+        "id": "fox-news",
+        "name": "Fox News"
+      },
+      "author": "Ryan Gaydos",
+      "title": "Bill Belichick is figurehead in some of the NFL's most famous moments from Raiders debacle to Tom Brady's rise - Fox News",
+      "description": "The Las Vegas Raiders' miraculous win over the New England Patriots was just one of many moments Bill Belichick was involved in one way or the other.",
+      "url": "https://www.foxnews.com/sports/bill-belichick-figurehead-some-nfls-most-famous-moments-raiders-debacle-tom-bradys-rise",
+      "urlToImage": "https://static.foxnews.com/foxnews.com/content/uploads/2022/12/Bill-Belichick4.jpg",
+      "publishedAt": "2022-12-20T07:00:20Z",
+      "content": "Bill Belichick was left with only a few words to describe the New England Patriots' loss to the Las Vegas Raiders on Sunday as Chandler Jones intercepted a terrible lateral toss and ran it back for a… [+12293 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Yahoo Entertainment"
+      },
+      "author": "Vlad Savov",
+      "title": "Musk Narrows Voting on Twitter Policy to Blue Members After Poll - Yahoo Finance",
+      "description": "(Bloomberg) -- Twitter Inc. will restrict voting on major policy decisions to paying Twitter Blue subscribers, company owner Elon Musk said in one of his...",
+      "url": "https://finance.yahoo.com/news/musk-says-twitter-restrict-voting-005213118.html",
+      "urlToImage": "https://s.yimg.com/ny/api/res/1.2/EMt55qM3gSCs9Z7tz3dcWA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/bloomberg_technology_68/7732b2344c5f0584ba2d6481a94c339a",
+      "publishedAt": "2022-12-20T06:58:00Z",
+      "content": "(Bloomberg) -- Twitter Inc. will restrict voting on major policy decisions to paying Twitter Blue subscribers, company owner Elon Musk said in one of his first tweets following a poll calling for him… [+2038 chars]"
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Kyung Lah",
+      "title": "Maricopa judge allows narrow part of Kari Lake's Arizona election lawsuit to head to trial - CNN",
+      "description": "A Maricopa County Superior Court judge ruled Monday that Arizona Republican Kari Lake, who lost last month's gubernatorial race, will be allowed to head to trial on two narrow claims in an election lawsuit.",
+      "url": "https://www.cnn.com/2022/12/20/politics/kari-lake-election-lawsuit-arizona/index.html",
+      "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/221102155529-kari-lake-phoenix-file-102722.jpg?c=16x9&q=w_800,c_fill",
+      "publishedAt": "2022-12-20T05:16:00Z",
+      "content": "A Maricopa County Superior Court judge ruled Monday that Arizona Republican Kari Lake, who lost last months gubernatorial race, will be allowed to head to trial on two narrow claims in an election la… [+2079 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Yahoo Entertainment"
+      },
+      "author": "Jason Owens",
+      "title": "Donovan Mitchell talks 'draining' Utah experience, then leads Cavs in blowout of Jazz - Yahoo Sports",
+      "description": "Mitchell opened up about his challenges in Utah, then torched the Jazz in his first matchup against his former team.",
+      "url": "https://sports.yahoo.com/donovan-mitchell-talks-draining-utah-experience-then-leads-cavs-in-blowout-of-jazz-051230987.html",
+      "urlToImage": "https://s.yimg.com/ny/api/res/1.2/E9bsMaRolyxzUgmSZJ8Gng--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://s.yimg.com/os/creatr-uploaded-images/2022-12/9676cee0-8024-11ed-be65-4c639623e629",
+      "publishedAt": "2022-12-20T05:12:00Z",
+      "content": "Donovan Mitchell led the Cleveland Cavaliers on Monday to a 122-99 win over the Utah Jazz team that traded him this offseason.\r\nPrior to the game, he opened up to Andscape's Marc J. Spears about his … [+3676 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "BBC News"
+      },
+      "author": "https://www.facebook.com/bbcnews",
+      "title": "Perseverance: Nasa Mars rover to lay down rocks for Earth return - BBC",
+      "description": "The Perseverance rover is set to make a store of rocks that can be brought home by a future mission.",
+      "url": "https://www.bbc.com/news/science-environment-64006377",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/97F8/production/_128040983_selfie.jpg",
+      "publishedAt": "2022-12-20T04:45:51Z",
+      "content": "The American space agency's Mars rover Perseverance will this week begin dropping samples of rock on to the surface of the Red Planet.\r\nThe materials have been packaged in small titanium tubes with t… [+4529 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "YouTube"
+      },
+      "author": null,
+      "title": "Los Angeles Rams vs. Green Bay Packers | 2022 Week 15 Game Highlights - NFL",
+      "description": "Check out our other channels:NFL Mundo https://www.youtube.com/mundonflNFL Brasil https://www.youtube.com/c/NFLBrasilOficialNFL UK https://www.youtube.com/ch...",
+      "url": "https://www.youtube.com/watch?v=HL_p8QLlwkE",
+      "urlToImage": "https://i.ytimg.com/vi/HL_p8QLlwkE/maxresdefault.jpg",
+      "publishedAt": "2022-12-20T04:23:46Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "YouTube"
+      },
+      "author": null,
+      "title": "Congressman-elect George Santos may have fabricated parts of resume: NYT report - PIX11 News",
+      "description": "New York Congressman-elect George Santos may have fabricated key parts of his resume during his successful campaign for the U.S. House of Representatives, ac...",
+      "url": "https://www.youtube.com/watch?v=IVdgLQM7hFY",
+      "urlToImage": "https://i.ytimg.com/vi/IVdgLQM7hFY/maxresdefault.jpg",
+      "publishedAt": "2022-12-20T03:27:26Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Who13.com"
+      },
+      "author": "Justin Surrency",
+      "title": "Police identify victims of double homicide as mother, daughter. - WHO TV 13 Des Moines News & Weather",
+      "description": "DES MOINES, Iowa — Police have now identified the victims in what appears to be a double homicide in Des Moines as a mother and daughter. 47-year-old Danielle Remily and her daughter, 20-year-old Emma Parker were found dead inside a home in the 2600 block of …",
+      "url": "https://who13.com/news/police-identify-victims-of-double-homicide-as-mother-daughter/",
+      "urlToImage": "https://who13.com/wp-content/uploads/sites/19/2022/12/Daughter-Mom-death.jpg?w=1280",
+      "publishedAt": "2022-12-20T02:38:37Z",
+      "content": "DES MOINES, Iowa — Police have now identified the victims in what appears to be a double homicide in Des Moines as a mother and daughter. 47-year-old Danielle Remily and her daughter, 20-year-old Emm… [+1412 chars]"
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Kara Scannell, Patrick Oppmann, Allison Morrow",
+      "title": "FTX founder Sam Bankman-Fried agrees to be extradited to the US - CNN",
+      "description": "FTX founder Sam Bankman-Fried agreed to be extradited to the United States, where federal prosecutors have indicted him on eight counts of fraud and conspiracy.",
+      "url": "https://www.cnn.com/2022/12/19/business/sbf-extradition-bahamas/index.html",
+      "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/221214130507-sam-bankman-fried-nassau-bahamas-court-1213.jpg?c=16x9&q=w_800,c_fill",
+      "publishedAt": "2022-12-20T02:32:00Z",
+      "content": "FTX founder Sam Bankman-Fried agreed to be extradited to the United States, where federal prosecutors have indicted him on eight counts of fraud and conspiracy.\r\nJerone Roberts, the attorney represen… [+4198 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "The Guardian"
+      },
+      "author": "Samantha Lock",
+      "title": "‘My power’s really low’: Nasa’s Insight Mars rover prepares to sign off from the Red Planet - The Guardian",
+      "description": "Robot says it might be sending its last message from Mars as dust chokes out its power supply",
+      "url": "https://www.theguardian.com/science/2022/dec/20/my-powers-really-low-nasas-insight-mars-rover-signs-off-from-the-red-planet",
+      "urlToImage": "https://i.guim.co.uk/img/media/725c12465a2fd202a491c6f41c013b725792ac82/0_35_1016_610/master/1016.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=c67e56d2b431b11a7ac071249fa1bd86",
+      "publishedAt": "2022-12-20T02:18:00Z",
+      "content": "Nasas InSight lander has delivered what could be its final message from Mars, where it has been on a history-making mission to reveal the secrets of the Red Planets interior.\r\nIn November the space a… [+2758 chars]"
+    },
+    {
+      "source": {
+        "id": "reuters",
+        "name": "Reuters"
+      },
+      "author": null,
+      "title": "Wall Street falls fourth straight day as recession worries nag - Reuters.com",
+      "description": "Wall Street closed lower on Monday for a fourth straight session with Nasdaq leading declines as investors shied away from riskier bets, worried the Federal Reserve's tightening campaign could push the U.S. economy into a recession.",
+      "url": "https://www.reuters.com/markets/us/futures-higher-after-two-week-selloff-tesla-jumps-musk-poll-2022-12-19/",
+      "urlToImage": "https://www.reuters.com/resizer/rxAONKHQ-JMmgfZsH5otf4PYc-Q=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/6BNRVUXZAJONDEHOS24SD56VXM.jpg",
+      "publishedAt": "2022-12-20T01:27:00Z",
+      "content": "Dec 19 (Reuters) - Wall Street closed lower on Monday for a fourth straight session with Nasdaq leading declines as investors shied away from riskier bets, worried the Federal Reserve's tightening ca… [+3874 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Space.com"
+      },
+      "author": "Mike Wall",
+      "title": "Hole spotted in leaky Russian Soyuz spacecraft - Space.com",
+      "description": "It's unclear at the moment if the hole was caused by a micrometeoroid strike.",
+      "url": "https://www.space.com/russian-soyuz-spaceraft-leak-hole-detected",
+      "urlToImage": "https://cdn.mos.cms.futurecdn.net/eQSPoZkXhcbuNxUuUPbDy4-1200-80.jpg",
+      "publishedAt": "2022-12-20T01:09:37Z",
+      "content": "The leaky Russian Soyuz spacecraft docked to the International Space Station (ISS) has a small hole in it, an inspection has found.\r\nThe Soyuz's coolant leaked away on Wednesday night (Dec. 14), as t… [+2665 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "WTMJ-TV"
+      },
+      "author": "Brian Niznansky",
+      "title": "Winter Storm Watch issued for Southeast Wisconsin - TMJ4 News",
+      "description": "A Winter Storm Watch has been issued for Southeast Wisconsin beginning Thursday through Saturday.",
+      "url": "https://www.tmj4.com/weather/forecast/todays-forecast/southeast-wisconsin-weather-saturday-brings-on-and-off-snow-showers",
+      "urlToImage": "https://ewscripps.brightspotcdn.com/dims4/default/02eb532/2147483647/strip/true/crop/1280x672+0+24/resize/1200x630!/quality/90/?url=https%3A%2F%2Fx-default-stgec.uplynk.com%2Fausw%2Fslices%2F747%2F44c3f81cadf84cf5a6f4e6d100388208%2F7470a00290f54c798fe982ba519ed7a9%2Fposter_cbf0dddd102e4f5f9b25207248c039e0.jpg",
+      "publishedAt": "2022-12-20T00:56:00Z",
+      "content": "WINTER STORM WATCH issued for the following counties beginning Thursday at 6 a.m. through 6 a.m. Saturday: Kenosha, Racine, Washington, Ozaukee, Milwaukee, Sheboygan, Fond du Lac, Walworth, Dodge, Wa… [+1889 chars]"
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Nouran Salahieh, Cheri Mossburg",
+      "title": "Harvey Weinstein is convicted of 3 of 7 charges, including rape, in his Los Angeles sexual assault trial - CNN",
+      "description": "[Breaking news update, published at 7:46 p.m. ET]",
+      "url": "https://www.cnn.com/2022/12/19/us/harvey-weinstein-trial-deliberations-los-angeles-monday/index.html",
+      "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/221011183258-harvey-weinstein-court-100422.jpg?c=16x9&q=w_800,c_fill",
+      "publishedAt": "2022-12-20T00:33:00Z",
+      "content": "[Breaking news update, published at 7:46 p.m. ET]\r\nFormer movie producer Harvey Weinstein was found guilty of three of seven charges against him, including rape, Monday in a Los Angeles sexual assaul… [+8262 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "YouTube"
+      },
+      "author": null,
+      "title": "Epic Games Fined More than Half a Billion Over Fortnite's 'Unfair' Microtransactions - IGN Daily Fix - IGN",
+      "description": "On today's IGN The Daily Fix:Epic Games will have to pay $520 million over \"design tricks...to dupe millions of players into making unintentional purchases\" ...",
+      "url": "https://www.youtube.com/watch?v=aw6vwvJIAY4",
+      "urlToImage": "https://i.ytimg.com/vi/aw6vwvJIAY4/maxresdefault.jpg",
+      "publishedAt": "2022-12-20T00:28:40Z",
+      "content": null
+    }
+  ]
+}
