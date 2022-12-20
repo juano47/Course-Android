@@ -19,7 +19,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "API_KEY", "MY_API_KEY")
+        buildConfigField("String", "API_KEY", API_KEY)
         buildConfigField "String", "BASE_URL", "\"https://newsapi.org/v2/\""
     }
 
@@ -92,7 +92,8 @@ dependencies {
     testImplementation "com.google.truth:truth:1.1.3"
     testImplementation 'androidx.test.ext:junit:1.1.4'
     testImplementation "org.robolectric:robolectric:4.4"
-
+    //mockwebserver
+    testImplementation "com.squareup.okhttp3:mockwebserver:5.0.0-alpha.2"
 
     androidTestImplementation "junit:junit:4.13.2"
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
