@@ -6,5 +6,5 @@ import com.delaiglesia.newsapp.domain.repository.NewsRepository
 
 class GetNewsHeadlineUseCase(private val newsRepository: NewsRepository) {
 
-    suspend fun execute(): Resource<APIResponse> = newsRepository.getNewsHeadlines()
+    suspend fun execute(country: String, page: Int): Resource<APIResponse> = newsRepository.getNewsHeadlines(country, page)
 }
