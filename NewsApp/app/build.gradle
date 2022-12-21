@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     //hilt plugin
     id 'com.google.dagger.hilt.android'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -90,6 +91,8 @@ dependencies {
     //Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
+    //safe args
+    //implementation "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_version"
 
     testImplementation 'junit:junit:4.13.2'
     testImplementation "androidx.arch.core:core-testing:2.1.0"

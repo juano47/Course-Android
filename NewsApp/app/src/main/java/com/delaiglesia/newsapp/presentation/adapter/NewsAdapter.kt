@@ -42,6 +42,12 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
         return differ.currentList.size
     }
 
+    private var onItemClickListener: ((Article) -> Unit)? = null
+
+    fun setOnItemClickListener(listener: (Article) -> Unit) {
+        onItemClickListener = listener
+    }
+
     inner class NewsViewHolder(private val binding: NewsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(article: Article) {
@@ -54,6 +60,13 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
                 Glide.with(itemView)
                     .load(article.urlToImage)
                     .into(ivArticleImage)
+
+                //cuando se hace click en un elemento de la lista, se llama a la función lambda que
+                // se ha pasado como parámetro a setOnItemClickListener y se le pasa el artículo
+                // que se ha pulsado como parámetro (para que se pueda usar en el fragmento)
+                itemView.setOnClickListener {
+                    onItemClickListener?.let { it(article) }
+                }
             }
         }
     }

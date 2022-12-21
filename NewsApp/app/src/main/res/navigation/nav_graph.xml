@@ -27,5 +27,9 @@
         android:id="@+id/infoNewsFragment"
         android:name="com.delaiglesia.newsapp.presentation.InfoNewsFragment"
         android:label="fragment_info_news"
-        tools:layout="@layout/fragment_info_news" />
+        tools:layout="@layout/fragment_info_news" >
+        <argument
+            android:name="selected_article"
+            app:argType="com.delaiglesia.newsapp.data.model.Article" />
+    </fragment>
 </navigation>
