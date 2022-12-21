@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.delaiglesia.newsapp.R
 import com.delaiglesia.newsapp.databinding.ActivityMainBinding
+import com.delaiglesia.newsapp.presentation.adapter.NewsAdapter
 import com.delaiglesia.newsapp.presentation.viewModel.NewsViewModel
 import com.delaiglesia.newsapp.presentation.viewModel.NewsViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,6 +18,8 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var factory: NewsViewModelFactory
+    @Inject
+    lateinit var newsAdapter: NewsAdapter
     lateinit var viewModel: NewsViewModel
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {

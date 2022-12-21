@@ -32,14 +32,16 @@ class NewsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentNewsBinding.bind(view)
+        //viewModel es un objeto que se inyecta en el fragmento desde el activity
         viewModel = (activity as MainActivity).viewModel
+        //lo mismo con el adapter
+        newsAdapter = (activity as MainActivity).newsAdapter
         initRecyclerView()
         viewNewsList()
     }
 
     private fun initRecyclerView() {
         binding.newsRecyclerView.apply {
-            newsAdapter = NewsAdapter()
             layoutManager = LinearLayoutManager(activity)
         }
     }
