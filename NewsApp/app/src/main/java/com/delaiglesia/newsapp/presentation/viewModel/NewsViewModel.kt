@@ -11,6 +11,7 @@ import androidx.lifecycle.viewModelScope
 import com.delaiglesia.newsapp.data.model.APIResponse
 import com.delaiglesia.newsapp.data.utils.Resource
 import com.delaiglesia.newsapp.domain.usecase.GetNewsHeadlineUseCase
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -18,11 +19,10 @@ class NewsViewModel(
     private val app: Application,
     private val getNewsHeadlineUseCase: GetNewsHeadlineUseCase
 ) : AndroidViewModel(app) {
-    private val newsHeadlines: MutableLiveData<Resource<APIResponse>> = MutableLiveData()
+    val newsHeadlines: MutableLiveData<Resource<APIResponse>> = MutableLiveData()
 
     fun getNewsHeadlines(country: String, page: Int) = viewModelScope.launch(Dispatchers.IO) {
-        try {
-            if (isNetworkAvailable(app)) {
+        try { if (isNetworkAvailable(app)) {
                 newsHeadlines.postValue(Resource.Loading())
                 val response = getNewsHeadlineUseCase.execute(country, page)
                 newsHeadlines.postValue(response)
