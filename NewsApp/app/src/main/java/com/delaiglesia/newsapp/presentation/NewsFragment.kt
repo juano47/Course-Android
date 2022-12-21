@@ -62,10 +62,10 @@ class NewsFragment : Fragment() {
                     hideProgressBar()
                     response.data?.let { newsResponse ->
                         newsAdapter.differ.submitList(newsResponse.articles.toList())
-                        if (newsResponse.totalResults % 20 == 0) {
-                            pages = newsResponse.totalResults / 20
+                        pages = if (newsResponse.totalResults % 20 == 0) {
+                            newsResponse.totalResults / 20
                         } else {
-                            pages = newsResponse.totalResults / 20 + 1
+                            newsResponse.totalResults / 20 + 1
                         }
                         isLastPage = page == pages
                     }

@@ -11,7 +11,6 @@ import androidx.lifecycle.viewModelScope
 import com.delaiglesia.newsapp.data.model.APIResponse
 import com.delaiglesia.newsapp.data.utils.Resource
 import com.delaiglesia.newsapp.domain.usecase.GetNewsHeadlineUseCase
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

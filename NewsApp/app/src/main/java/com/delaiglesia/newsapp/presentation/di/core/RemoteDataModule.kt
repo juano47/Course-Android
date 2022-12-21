@@ -1,6 +1,5 @@
 package com.delaiglesia.newsapp.presentation.di.core
 
-import com.delaiglesia.newsapp.BuildConfig
 import com.delaiglesia.newsapp.data.api.NewsApiService
 import com.delaiglesia.newsapp.data.repository.dataSource.NewsRemoteDataSource
 import com.delaiglesia.newsapp.data.repository.dataSourceImpl.NewsRemoteDataSourceImpl
