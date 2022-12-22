@@ -6,6 +6,7 @@ import com.delaiglesia.newsapp.domain.repository.NewsRepository
 
 class GetSearchedNewsUseCase(private val newsRepository: NewsRepository) {
 
-    suspend fun execute(query: String): Resource<APIResponse> = newsRepository.getSearchedNews(query)
+    suspend fun execute(country: String, page: Int, searchQuery: String): Resource<APIResponse> =
+        newsRepository.getSearchedNews(country, page, searchQuery)
 
 }

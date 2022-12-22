@@ -6,15 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AbsListView
+import android.widget.SearchView
 import android.widget.Toast
+import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.delaiglesia.newsapp.R
+import com.delaiglesia.newsapp.data.model.APIResponse
 import com.delaiglesia.newsapp.data.utils.Resource
 import com.delaiglesia.newsapp.databinding.FragmentNewsBinding
 import com.delaiglesia.newsapp.presentation.adapter.NewsAdapter
 import com.delaiglesia.newsapp.presentation.viewModel.NewsViewModel
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class NewsFragment : Fragment() {
 
@@ -53,7 +59,8 @@ class NewsFragment : Fragment() {
             )
         }
         initRecyclerView()
-        viewNewsList()
+        viewNewsList(Action.SHOW)
+        setSearchView()
     }
 
     private fun initRecyclerView() {
@@ -64,9 +71,15 @@ class NewsFragment : Fragment() {
         binding.newsRecyclerView.addOnScrollListener(this@NewsFragment.onScrollListener)
     }
 
-    private fun viewNewsList() {
-        viewModel.getNewsHeadlines(country, page)
-        viewModel.newsHeadlines.observe(viewLifecycleOwner) { response ->
+    private fun viewNewsList(action: Action) {
+        val newsHeadlines: MutableLiveData<Resource<APIResponse>> = if (action == Action.SHOW) {
+            viewModel.getNewsHeadlines(country, page)
+            viewModel.newsHeadlines
+        } else {
+            viewModel.newsSearchedHeadlines
+        }
+
+        newsHeadlines.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is Resource.Success -> {
                     hideProgressBar()
@@ -98,6 +111,40 @@ class NewsFragment : Fragment() {
         }
     }
 
+    //search view listener
+    private fun setSearchView() {
+        binding.searchViewNews.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (query != null) {
+                    viewModel.getSearchedNews(country, page, query)
+                    viewNewsList(Action.SEARCH)
+                }
+                //false para que no se cierre el teclado al pulsar enter en el searchView y true para que se cierre
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                MainScope().launch {
+                    if (newText != null) {
+                        //delay para que no se haga la petición cada vez que se pulse una tecla en el searchView, mas eficiente
+                        delay(2000)
+                        viewModel.getSearchedNews(country, page, newText)
+                        viewNewsList(Action.SEARCH)
+                    }
+                }
+                return false
+            }
+        })
+
+        binding.searchViewNews.setOnCloseListener {
+            initRecyclerView()
+            viewNewsList(Action.SHOW)
+            false
+        }
+    }
+
+
+    //common functions
     private fun showProgressBar() {
         isLoading = true
         binding.progressBar.visibility = View.VISIBLE
@@ -131,5 +178,9 @@ class NewsFragment : Fragment() {
                 isScrolling = false
             }
         }
+    }
+
+    enum class Action {
+        SHOW, SEARCH
     }
 }

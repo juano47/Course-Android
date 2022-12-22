@@ -12,6 +12,7 @@ interface NewsApiService {
     suspend fun getTopHeadlines(
         @Query("country") country: String = "us",
         @Query("page") page: Int = 1,
+        @Query("q") searchQuery: String? = null,
         @Query("apiKey") apiKey: String = BuildConfig.API_KEY
     ): Response<APIResponse>
 }

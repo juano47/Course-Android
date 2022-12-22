@@ -3,8 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".presentation.NewsFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".presentation.NewsFragment">
+
+    <SearchView
+        android:id="@+id/searchViewNews"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/search_background" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/newsRecyclerView"

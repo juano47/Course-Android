@@ -2,6 +2,7 @@ package com.delaiglesia.newsapp.presentation.di.news
 
 import android.app.Application
 import com.delaiglesia.newsapp.domain.usecase.GetNewsHeadlineUseCase
+import com.delaiglesia.newsapp.domain.usecase.GetSearchedNewsUseCase
 import com.delaiglesia.newsapp.presentation.viewModel.NewsViewModelFactory
 import dagger.Module
 import dagger.Provides
@@ -17,6 +18,7 @@ class NewsModule {
     @Provides
     fun provideMovieViewModelFactory(
         app: Application,
-        getNewsHeadlineUseCase: GetNewsHeadlineUseCase
-    ) = NewsViewModelFactory(app, getNewsHeadlineUseCase)
+        getNewsHeadlineUseCase: GetNewsHeadlineUseCase,
+        getSearchedNewsUseCase: GetSearchedNewsUseCase
+    ) = NewsViewModelFactory(app, getNewsHeadlineUseCase, getSearchedNewsUseCase)
 }
