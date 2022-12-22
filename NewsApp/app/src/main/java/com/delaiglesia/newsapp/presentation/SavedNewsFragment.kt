@@ -4,21 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.delaiglesia.newsapp.R
-import com.delaiglesia.newsapp.data.model.APIResponse
-import com.delaiglesia.newsapp.data.utils.Resource
 import com.delaiglesia.newsapp.databinding.FragmentSavedNewsBinding
 import com.delaiglesia.newsapp.presentation.adapter.NewsAdapter
 import com.delaiglesia.newsapp.presentation.viewModel.NewsViewModel
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class SavedNewsFragment : Fragment() {
 
@@ -50,8 +42,7 @@ class SavedNewsFragment : Fragment() {
             )
         }
         initRecyclerView()
-        viewNewsList(NewsFragment.Action.SHOW)
-       // setSearchView()
+        viewNewsList()
     }
 
     private fun initRecyclerView() {
@@ -61,42 +52,10 @@ class SavedNewsFragment : Fragment() {
         }
     }
 
-    private fun viewNewsList(action: NewsFragment.Action) {
+    private fun viewNewsList() {
 
         viewModel.getSavedNews().observe(viewLifecycleOwner) {
             newsAdapter.differ.submitList(it)
         }
     }
-
-    /*//search view listener
-    private fun setSearchView() {
-        binding.searchViewNews.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                if (query != null) {
-                    viewModel.getSearchedNews(country, page, query)
-                    viewNewsList(NewsFragment.Action.SEARCH)
-                }
-                //false para que no se cierre el teclado al pulsar enter en el searchView y true para que se cierre
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                MainScope().launch {
-                    if (newText != null) {
-                        //delay para que no se haga la petición cada vez que se pulse una tecla en el searchView, mas eficiente
-                        delay(2000)
-                        viewModel.getSearchedNews(country, page, newText)
-                        viewNewsList(NewsFragment.Action.SEARCH)
-                    }
-                }
-                return false
-            }
-        })
-
-        binding.searchViewNews.setOnCloseListener {
-            initRecyclerView()
-            viewNewsList(NewsFragment.Action.SHOW)
-            false
-        }
-    }*/
 }

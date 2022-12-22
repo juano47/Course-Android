@@ -12,7 +12,6 @@ import com.delaiglesia.newsapp.domain.usecase.*
 import com.delaiglesia.newsapp.presentation.utils.CheckNetwork
 import com.delaiglesia.newsapp.presentation.utils.CheckNetwork.isNetworkAvailable
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class NewsViewModel(
@@ -29,7 +28,7 @@ class NewsViewModel(
 
     fun getNewsHeadlines(country: String, page: Int) = viewModelScope.launch(Dispatchers.IO) {
         try {
-            if (CheckNetwork.isNetworkAvailable(app)) {
+            if (isNetworkAvailable(app)) {
                 newsHeadlines.postValue(Resource.Loading())
                 val response = getNewsHeadlineUseCase.execute(country, page)
                 newsHeadlines.postValue(response)
