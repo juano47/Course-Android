@@ -21,13 +21,15 @@ class NewsModule {
         getSearchedNewsUseCase: GetSearchedNewsUseCase,
         saveNewsUseCase: SaveNewsUseCase,
         getSavedNewsUseCase: GetSavedNewsUseCase,
-        getSavedArticleUseCase: GetSavedArticleUseCase
+        getSavedArticleUseCase: GetSavedArticleUseCase,
+        deleteSavedNewsUseCase: DeleteSavedNewsUseCase
     ) = NewsViewModelFactory(
         app,
         getNewsHeadlineUseCase,
         getSearchedNewsUseCase,
         saveNewsUseCase,
         getSavedNewsUseCase,
-        getSavedArticleUseCase
+        getSavedArticleUseCase,
+        deleteSavedNewsUseCase
     )
 }

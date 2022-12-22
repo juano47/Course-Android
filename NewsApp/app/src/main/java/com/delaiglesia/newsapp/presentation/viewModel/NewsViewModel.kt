@@ -9,7 +9,6 @@ import com.delaiglesia.newsapp.data.model.APIResponse
 import com.delaiglesia.newsapp.data.model.Article
 import com.delaiglesia.newsapp.data.utils.Resource
 import com.delaiglesia.newsapp.domain.usecase.*
-import com.delaiglesia.newsapp.presentation.utils.CheckNetwork
 import com.delaiglesia.newsapp.presentation.utils.CheckNetwork.isNetworkAvailable
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -20,11 +19,11 @@ class NewsViewModel(
     private val getSearchedNewsUseCase: GetSearchedNewsUseCase,
     private val saveNewsUseCase: SaveNewsUseCase,
     private val getSavedNewsUseCase: GetSavedNewsUseCase,
-    private val getSavedArticleUseCase: GetSavedArticleUseCase
+    private val getSavedArticleUseCase: GetSavedArticleUseCase,
+    private val deleteSavedNewsUseCase: DeleteSavedNewsUseCase
 ) : AndroidViewModel(app) {
     val newsHeadlines: MutableLiveData<Resource<APIResponse>> = MutableLiveData()
     val newsSearchedHeadlines: MutableLiveData<Resource<APIResponse>> = MutableLiveData()
-    val savedNews: MutableLiveData<List<Article>> = MutableLiveData()
 
     fun getNewsHeadlines(country: String, page: Int) = viewModelScope.launch(Dispatchers.IO) {
         try {
@@ -70,5 +69,9 @@ class NewsViewModel(
         getSavedArticleUseCase.getArticle(url).collect {
             emit(it)
         }
+    }
+
+    fun deleteArticle(article: Article) = viewModelScope.launch(Dispatchers.IO) {
+        deleteSavedNewsUseCase.execute(article)
     }
 }

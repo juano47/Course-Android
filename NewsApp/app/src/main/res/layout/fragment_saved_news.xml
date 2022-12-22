@@ -6,12 +6,6 @@
     android:orientation="vertical"
     tools:context=".presentation.SavedNewsFragment">
 
-    <TextView
-        android:id="@+id/savedNewsEmptyTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Saved News Fragment" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/savedNewsRecyclerView"
         android:layout_width="match_parent"
