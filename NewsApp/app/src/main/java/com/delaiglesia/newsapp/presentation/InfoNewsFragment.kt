@@ -45,6 +45,9 @@ class InfoNewsFragment : Fragment() {
                 if (articles.isEmpty()) {
                     viewModel.saveArticle(article)
                     Snackbar.make(view, "Article saved successfully", Snackbar.LENGTH_SHORT).show()
+                    //removemos el observer para que no se siga ejecutando porque sino al guardar un articulo
+                    // se ejecutaria de nuevo el observer y se entra al else y se muestra el mensaje de que ya esta guardado
+                    articlesFromDb.removeObservers(viewLifecycleOwner)
                 } else {
                     Snackbar.make(view, "Article already saved", Snackbar.LENGTH_SHORT).show()
 
