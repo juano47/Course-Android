@@ -2,17 +2,16 @@ package com.delaiglesia.newsapp.presentation.di.core
 
 import android.app.Application
 import androidx.room.Room
+import com.delaiglesia.newsapp.data.db.NewsDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-//@Module
-//@InstallIn(SingletonComponent::class)
+@Module
+@InstallIn(SingletonComponent::class)
 class DatabaseModule {
-/*
-
     @Singleton
     @Provides
     fun provideDatabase(app: Application): NewsDatabase {
@@ -22,8 +21,5 @@ class DatabaseModule {
 
     @Singleton
     @Provides
-    fun provideNewsDao(database: NewsDatabase) = database.newsDao()
-*/
-
-
+    fun provideArticleDao(database: NewsDatabase) = database.getArticleDao()
 }

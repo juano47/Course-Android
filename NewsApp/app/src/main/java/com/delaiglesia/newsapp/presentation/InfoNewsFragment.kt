@@ -9,10 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.delaiglesia.newsapp.R
 import com.delaiglesia.newsapp.databinding.FragmentInfoNewsBinding
+import com.delaiglesia.newsapp.presentation.viewModel.NewsViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class InfoNewsFragment : Fragment() {
 
     private lateinit var binding: FragmentInfoNewsBinding
+    private lateinit var viewModel: NewsViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,6 +27,8 @@ class InfoNewsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentInfoNewsBinding.bind(view)
+        viewModel = (activity as MainActivity).viewModel
+
         val args : InfoNewsFragmentArgs by navArgs()
         val article = args.selectedArticle
 
@@ -31,6 +36,19 @@ class InfoNewsFragment : Fragment() {
             webViewClient = WebViewClient()
             if (article.url != null) {
                 loadUrl(article.url)
+            }
+        }
+
+        binding.fabSave.setOnClickListener {
+            val articlesFromDb = viewModel.getArticle(article.url!!)
+            articlesFromDb.observe(viewLifecycleOwner) { articles ->
+                if (articles.isEmpty()) {
+                    viewModel.saveArticle(article)
+                    Snackbar.make(view, "Article saved successfully", Snackbar.LENGTH_SHORT).show()
+                } else {
+                    Snackbar.make(view, "Article already saved", Snackbar.LENGTH_SHORT).show()
+
+                }
             }
         }
     }

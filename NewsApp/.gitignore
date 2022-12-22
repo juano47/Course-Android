@@ -16,3 +16,4 @@ local.properties
 gradle.properties
 /.idea/shelf/db/shelved.patch
 /.idea/shelf/db.xml
+/.idea/

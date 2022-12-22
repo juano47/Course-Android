@@ -1,35 +1,30 @@
 package com.delaiglesia.newsapp.presentation
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.MutableLiveData
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.delaiglesia.newsapp.R
+import com.delaiglesia.newsapp.data.model.APIResponse
+import com.delaiglesia.newsapp.data.utils.Resource
+import com.delaiglesia.newsapp.databinding.FragmentSavedNewsBinding
+import com.delaiglesia.newsapp.presentation.adapter.NewsAdapter
+import com.delaiglesia.newsapp.presentation.viewModel.NewsViewModel
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SavedNewsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SavedNewsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private lateinit var viewModel: NewsViewModel
+    private lateinit var binding: FragmentSavedNewsBinding
+    private lateinit var newsAdapter: NewsAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,23 +33,70 @@ class SavedNewsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_saved_news, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SavedNewsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SavedNewsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentSavedNewsBinding.bind(view)
+        //viewModel es un objeto que se inyecta en el fragmento desde el activity
+        viewModel = (activity as MainActivity).viewModel
+        //lo mismo con el adapter
+        newsAdapter = (activity as MainActivity).newsAdapter
+        newsAdapter.setOnItemClickListener { article ->
+            val bundle = Bundle().apply {
+                putSerializable("selected_article", article)
             }
+            findNavController().navigate(
+                R.id.action_newsFragment_to_infoNewsFragment,
+                bundle
+            )
+        }
+        initRecyclerView()
+        viewNewsList(NewsFragment.Action.SHOW)
+       // setSearchView()
     }
+
+    private fun initRecyclerView() {
+        binding.savedNewsRecyclerView.apply {
+            layoutManager = LinearLayoutManager(activity)
+            adapter = newsAdapter
+        }
+    }
+
+    private fun viewNewsList(action: NewsFragment.Action) {
+
+        viewModel.getSavedNews().observe(viewLifecycleOwner) {
+            newsAdapter.differ.submitList(it)
+        }
+    }
+
+    /*//search view listener
+    private fun setSearchView() {
+        binding.searchViewNews.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (query != null) {
+                    viewModel.getSearchedNews(country, page, query)
+                    viewNewsList(NewsFragment.Action.SEARCH)
+                }
+                //false para que no se cierre el teclado al pulsar enter en el searchView y true para que se cierre
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                MainScope().launch {
+                    if (newText != null) {
+                        //delay para que no se haga la petición cada vez que se pulse una tecla en el searchView, mas eficiente
+                        delay(2000)
+                        viewModel.getSearchedNews(country, page, newText)
+                        viewNewsList(NewsFragment.Action.SEARCH)
+                    }
+                }
+                return false
+            }
+        })
+
+        binding.searchViewNews.setOnCloseListener {
+            initRecyclerView()
+            viewNewsList(NewsFragment.Action.SHOW)
+            false
+        }
+    }*/
 }
