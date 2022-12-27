@@ -4,76 +4,41 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Divider
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.runtime.remember
 import androidx.compose.ui.unit.dp
-import com.delaiglesia.jetpackcomposedemo.ui.theme.JetpackComposeDemoTheme
+import com.delaiglesia.jetpackcomposedemo.compose.TvShowListItem
+import com.example.composerecyclerview.data.TvShowList
+import com.example.composerecyclerview.model.TvShow
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            //ScrollableColumn()
-            LazyColumnDemo {
-                Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+            DisplayTvShows {
+                startActivity(InfoActivity.intentShowInfo(this, it))
             }
         }
     }
 }
 
-//basic ListView example, using a Column and a Divider to separate each item in the list
-//it is not efficient, because it will create all the items in the list, even if they are not visible
-//it is better to use LazyColumn, which will only create the items that are visible
 @Composable
-fun ScrollableColumn() {
-    val scrollState = rememberScrollState()
-    Column(modifier = Modifier.verticalScroll(scrollState)) {
-        for (i in 1..100) {
-            Text(
-                text = "Username $i",
-                style = MaterialTheme.typography.h3,
-                modifier = Modifier.padding(10.dp)
-            )
-            Divider(color = Color.Black, thickness = 5.dp)
-        }
+private fun DisplayTvShows(selectedItem: (TvShow) -> Unit) {
+    //remember is used to keep the state of the list of tv shows when the screen is rotated
+    // or when the app is resumed from the background state to the foreground state
+    val tvShows = remember { TvShowList.tvShows }
+    LazyColumn(
+        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+    ) {
+        items(
+            items = tvShows,
+            itemContent = {
+                TvShowListItem(tvShow = it, selectedItem)
+            }
+        )
     }
 }
 
-//LazyColumn is more efficient, because it will only create the items that are visible
-@Composable
-fun LazyColumnDemo(selectedItem: (String) -> Unit) {
-    LazyColumn {
-        items(100) {
-            Text(
-                text = "Username $it",
-                style = MaterialTheme.typography.h3,
-                modifier = Modifier
-                    .padding(10.dp)
-                    .clickable { selectedItem("Username $it") }
-            )
-            Divider(color = Color.Black, thickness = 5.dp)
-        }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    JetpackComposeDemoTheme {
-        ScrollableColumn()
-    }
-}
