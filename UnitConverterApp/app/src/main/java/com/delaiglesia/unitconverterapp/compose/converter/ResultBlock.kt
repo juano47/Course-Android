@@ -1,4 +1,4 @@
-package com.delaiglesia.unitconverterapp.compose
+package com.delaiglesia.unitconverterapp.compose.converter
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth

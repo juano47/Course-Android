@@ -1,4 +1,4 @@
-package com.delaiglesia.unitconverterapp.compose
+package com.delaiglesia.unitconverterapp.compose.converter
 
 import android.content.Context
 import android.widget.Toast

@@ -1,4 +1,4 @@
-package com.delaiglesia.unitconverterapp.compose
+package com.delaiglesia.unitconverterapp.compose.history
 
 import androidx.compose.runtime.Composable
 
