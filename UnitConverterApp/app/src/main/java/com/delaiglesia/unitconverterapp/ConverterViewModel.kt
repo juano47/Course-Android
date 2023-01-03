@@ -20,11 +20,25 @@ class ConverterViewModel(private val converterRepository: ConverterRepository): 
         Conversion(6, "Kilograms to Pounds", "Kg", "Pounds", 2.2046)
     )
 
+    val resultsHistoryList = converterRepository.getAllConversionResults()
+
     fun saveResult(message1: String, message2: String) {
         //dispatchers.io se usa porque es una operacion de base de datos y no queremos que se bloquee el hilo principal
         viewModelScope.launch(Dispatchers.IO) {
             //no importa si el id es 0, porque la base de datos lo va a ignorar (autoincrement)
             converterRepository.insertConversionResult(ConversionResult(0, message1, message2))
+        }
+    }
+
+    fun removeResult(conversion: ConversionResult) {
+        viewModelScope.launch(Dispatchers.IO) {
+            converterRepository.deleteConversionResult(conversion)
+        }
+    }
+
+    fun removeAllResults() {
+        viewModelScope.launch(Dispatchers.IO) {
+            converterRepository.deleteAllConversionResults()
         }
     }
 }

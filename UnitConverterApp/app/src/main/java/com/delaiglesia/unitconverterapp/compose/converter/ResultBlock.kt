@@ -16,25 +16,28 @@ import androidx.compose.ui.unit.sp
 fun ResultBlock(
     message1: String,
     message2: String,
+    isVisible: Boolean,
     modifier: Modifier = Modifier
 ) {
-    Card(
-        elevation = 20.dp,
-        modifier = modifier
-            .padding(0.dp, 20.dp, 0.dp, 0.dp)
-            .fillMaxWidth()
-    ) {
-        Column(modifier = modifier.padding(10.dp)) {
-            Text(
-                text = message1,
-                fontSize = 28.sp
-            )
-            Text(
-                text = message2,
-                fontSize = 28.sp,
-                color = Color.Blue,
-                fontWeight = FontWeight.Bold
-            )
+    if (isVisible) {
+        Card(
+            elevation = 20.dp,
+            modifier = modifier
+                .padding(0.dp, 20.dp, 0.dp, 0.dp)
+                .fillMaxWidth()
+        ) {
+            Column(modifier = modifier.padding(10.dp)) {
+                Text(
+                    text = message1,
+                    fontSize = 28.sp
+                )
+                Text(
+                    text = message2,
+                    fontSize = 28.sp,
+                    color = Color.Blue,
+                    fontWeight = FontWeight.Bold
+                )
+            }
         }
     }
 }
