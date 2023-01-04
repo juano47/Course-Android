@@ -9,6 +9,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.layout.onGloballyPositioned
@@ -33,7 +34,7 @@ fun ConversionMenu(
     //llamar a la funcion con el mismo valor, no se vuelve a ejecutar, si se llama con un valor
     //diferente, se vuelve a ejecutar.
     // Evita perder el estado de la variable cuando se recrea la vista!!
-    var displayingText by remember { mutableStateOf("Select the conversion type") }
+    var displayingText by rememberSaveable { mutableStateOf("Select the conversion type") }
     var textFieldSize by remember { mutableStateOf(Size.Zero) }
     var expanded by remember { mutableStateOf(false) }
     val icon = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Default.KeyboardArrowDown

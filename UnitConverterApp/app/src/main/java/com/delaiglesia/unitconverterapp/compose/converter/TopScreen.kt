@@ -4,18 +4,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import com.delaiglesia.unitconverterapp.data.Conversion
 import java.text.DecimalFormat
 
 @Composable
 fun TopScreen(
     list: List<Conversion>,
+    selectedConversion: MutableState<Conversion?>,
+    typedValue: MutableState<Double>,
+    isResultVisible: MutableState<Boolean>,
     saveResult: (String, String) -> Unit
 ) {
-    val selectedConversion: MutableState<Conversion?> = remember { mutableStateOf(null) }
-    val typedValue: MutableState<Double> = remember { mutableStateOf(0.0) }
-    val isResultVisible: MutableState<Boolean> = remember { mutableStateOf(false) }
-
     ConversionMenu(list = list) {
         selectedConversion.value = it
     }
@@ -30,8 +30,8 @@ fun TopScreen(
         }
     )
 
-    val message1 = remember { mutableStateOf("") }
-    val message2 = remember { mutableStateOf("") }
+    val message1 = rememberSaveable { mutableStateOf("") }
+    val message2 = rememberSaveable { mutableStateOf("") }
     if (typedValue.value != 0.0) {
         //round to 4 decimal places
         val df = DecimalFormat("#.####")

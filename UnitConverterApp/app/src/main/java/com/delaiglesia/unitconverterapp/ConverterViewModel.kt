@@ -1,5 +1,8 @@
 package com.delaiglesia.unitconverterapp
 
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.delaiglesia.unitconverterapp.data.Conversion
@@ -9,6 +12,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ConverterViewModel(private val converterRepository: ConverterRepository): ViewModel() {
+
+    val selectedConversion: MutableState<Conversion?> = mutableStateOf(null)
+    val typedValue: MutableState<Double> = mutableStateOf(0.0)
+    val isResultVisible: MutableState<Boolean> = mutableStateOf(false)
 
     fun getConversions() = listOf(
         Conversion(1, "Celsius to Fahrenheit", "Celsius", "Fahrenheit", 1.8),
