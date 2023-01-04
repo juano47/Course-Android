@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.delaiglesia.unitconverterapp.data.Conversion
 import com.delaiglesia.unitconverterapp.data.ConversionResult
-import com.delaiglesia.unitconverterapp.data.ConverterDao
 import com.delaiglesia.unitconverterapp.data.ConverterRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

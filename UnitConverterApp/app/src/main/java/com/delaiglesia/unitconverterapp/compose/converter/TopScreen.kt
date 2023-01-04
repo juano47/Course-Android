@@ -14,40 +14,42 @@ fun TopScreen(
 ) {
     val selectedConversion: MutableState<Conversion?> = remember { mutableStateOf(null) }
     val typedValue: MutableState<Double> = remember { mutableStateOf(0.0) }
-    val isResultBlockVisible: MutableState<Boolean> = remember { mutableStateOf(false) }
+    val isResultVisible: MutableState<Boolean> = remember { mutableStateOf(false) }
 
     ConversionMenu(list = list) {
         selectedConversion.value = it
-        typedValue.value = 0.0 //reset the value to avoid double entries in the database when
-        //re composition happens.
     }
 
     InputBlock(
         conversion = selectedConversion.value,
-        calculate =  { input ->
+        calculate = { input ->
             typedValue.value = input.toDouble()
         },
-        emptyInput = { typedValue.value = 0.0 }
+        emptyInput = {
+            isResultVisible.value = false
+        }
     )
 
+    val message1 = remember { mutableStateOf("") }
+    val message2 = remember { mutableStateOf("") }
     if (typedValue.value != 0.0) {
         //round to 4 decimal places
         val df = DecimalFormat("#.####")
         df.roundingMode = java.math.RoundingMode.DOWN
         val result = typedValue.value.times(selectedConversion.value!!.conversionFactor)
-        df.format(result)
+        val resultFormatted = df.format(result)
 
-        val message1 = "${typedValue.value} ${selectedConversion.value!!.convertFrom} is equal to"
-        val message2 = "$result ${selectedConversion.value!!.convertTo}"
+        message1.value = "${typedValue.value} ${selectedConversion.value!!.convertFrom} is equal to"
+        message2.value = "$resultFormatted ${selectedConversion.value!!.convertTo}"
 
-        saveResult(message1, message2)
-        //show result
-        isResultBlockVisible.value = true
-        ResultBlock(message1, message2, isResultBlockVisible.value)
-    } else {
-        isResultBlockVisible.value = false
-        ResultBlock("", "", isResultBlockVisible.value)
+        saveResult(message1.value, message2.value)
+        isResultVisible.value = true
+
     }
+    typedValue.value = 0.0
+
+    ResultBlock(message1.value, message2.value, isResultVisible.value)
+
 }
 
 

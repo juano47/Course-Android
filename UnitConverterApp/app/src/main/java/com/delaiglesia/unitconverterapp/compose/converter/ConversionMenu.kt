@@ -61,7 +61,7 @@ fun ConversionMenu(
             onDismissRequest = { expanded = false },
             modifier = modifier.width(with(LocalDensity.current) { textFieldSize.width.toDp() })
         ) {
-            list.forEach() {
+            list.forEach {
                 DropdownMenuItem(
                     onClick = {
                         displayingText = it.description

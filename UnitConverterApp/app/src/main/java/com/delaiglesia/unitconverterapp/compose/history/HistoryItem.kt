@@ -1,11 +1,11 @@
 package com.delaiglesia.unitconverterapp.compose.history
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement.SpaceBetween
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Divider
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
@@ -24,16 +24,16 @@ fun HistoryItem(
     messagePart1: String,
     messagePart2: String,
     onClose: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    showDivider: Boolean,
 ) {
     Row(
         modifier = modifier
-            .fillMaxWidth()
-            .border(border = BorderStroke(0.5.dp, color = Color.Gray)),
+            .fillMaxWidth(),
         verticalAlignment = CenterVertically,
         horizontalArrangement = SpaceBetween
     ) {
-        Column {
+        Column(modifier = modifier.padding(10.dp, 5.dp, 0.dp, 5.dp)) {
             Text(
                 text = messagePart1,
                 fontSize = 20.sp
@@ -49,5 +49,8 @@ fun HistoryItem(
             Icon(Icons.Filled.Close, contentDescription = "Close")
         }
 
+    }
+    if (showDivider) {
+        Divider(color = Color.Gray, thickness = 0.5.dp)
     }
 }
