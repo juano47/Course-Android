@@ -1,7 +1,7 @@
 # Course-Android
 Live demo: https://appetize.io/app/ag_9mk9cakde5hxta0fwwyhhfuzmg?device=pixel6&osVersion=13.0&scale=75
- - Navigation component
- - Room Database
+ - Navigation component demo App
+ - Room Database demo App
  - Movies App: complete project with Clean Architecture design:
    - Dagger Hilt (Dagger and conversion to Dagger Hilt)
    - Retrofit
